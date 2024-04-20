@@ -1,0 +1,19 @@
+/* Customize IDE-like interface */
+.ide-container {
+    background-color: #272822;
+    padding: 20px;
+    border-radius: 5px;
+}
+.code-block {
+    margin-bottom: 20px;
+}
+.code-block h3 {
+    color: #f8f8f2; /* Text color */
+}
+pre {
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+}

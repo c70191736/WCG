@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+input form
+{% endblock title %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="generate-code-form" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="website_link">Enter Website Link:</label>
+                        <input type="text" class="form-control" id="website_link" name="website_link" required>
+                        <div class="invalid-feedback">Please enter a website link.</div>
+                    </div>
+                    {% csrf_token %} <!-- Include CSRF token in the form -->
+                    <button type="submit" id="generate-code-btn" class="btn btn-primary">
+                        <span id="generate-code-text">Generate Code</span>
+                        <span id="generate-code-loader" style="display: none;">
+                            <div class="spinner-border spinner-border-sm" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="code-display"></div>
+{% endblock %}

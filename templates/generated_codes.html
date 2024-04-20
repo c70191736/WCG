@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Generated Codes{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="ide-container">
+                <!-- HTML Code -->
+                <div class="code-block">
+                    <h3>HTML:</h3>
+                    <pre><code class="language-html" id="html-code">{{ html_code }}</code></pre>
+                </div>
+
+                <!-- CSS Code -->
+                {% if external_css_content %}
+                <div class="code-block">
+                    <h3>CSS:</h3>
+                    {% for css_url, css_content in external_css_content.items %}
+                    <pre><code class="language-css" id="css-code">{{ css_content }}</code></pre>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="code-block">
+                    <h3>CSS:</h3>
+                    <pre><code class="language-css" id="css-code">No external CSS files found.</code></pre>
+                </div>
+                {% endif %}
+
+                <!-- JavaScript Code -->
+                {% if external_js_content %}
+                <div class="code-block">
+                    <h3>JavaScript:</h3>
+                    {% for js_url, js_content in external_js_content.items %}
+                    <pre><code class="language-js" id="js-code">{{ js_content }}</code></pre>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="code-block">
+                    <h3>JavaScript:</h3>
+                    <pre><code class="language-js" id="js-code">No external JavaScript files found.</code></pre>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
